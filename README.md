@@ -23,6 +23,23 @@ Oh, great. Let me pull up my Calendar, my email client and type out a few times 
 
 To hell with that. This script loops my Calendar, generates a nice and well-formatted response like this that I can simply forward on.
 
+Getting started
+===============
+```
+git clone https://github.com/bmcmanus/availability.git
+pyvenv-3.4 availability
+cd availability
+source bin/activate
+pip install -r requirements.txt
+   
+EXCHANGE_USERNAME="uglydomain.local\\brian"
+EXCHANGE_PASSWORD="secret"
+EXCHANGE_URL="https://remote.corporateserver.com/EWS/Exchange.asmx"
+python main.py
+```
+
+Project management
+==================
 COMPLETE
 --------
 * I wasn't too keen on the pyexchange interface, so I wrote an adapter module around pyexchange.
@@ -31,4 +48,5 @@ COMPLETE
 TODO
 ----
 * Implement 'recursive function' (or simple list comprehension) that iterates over events building up availability time blocks.
-* Implement 'doctopt' so that paramaters like working-hours, timezone, and start/stop periods can be specified on the command line.
+* Implement 'doctopt' so that paramaters like calendar system (gmail or exchange), credentials, working-hours, timezone, and start/stop periods can be specified on the command line.
+* Deprecate using environment variable. That was a quick hack.
